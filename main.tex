@@ -1,0 +1,216 @@
+\documentclass[11pt, a4paper]{report}
+\usepackage{setspace}          
+\setstretch{1.5}   
+% --- Core Setup ---
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage[pdfencoding=auto]{hyperref}
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{rotating}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+% Use this for standard pdflatex compatibility with Open Sans
+\usepackage[default]{opensans}
+\usepackage{microtype}            % 优化字间距
+% \usepackage[
+%     backend=biber,      % APA7 必须使用 biber 后端，而不是传统的 bibtex
+%     style=apa,          % 严格遵守 APA 第 7 版规范
+%     natbib=true,        % 允许使用 \parencite, \textcite, \citealp 等命令
+%     %backref=true        % 可选：在参考文献列表中显示引用的页码，增加易读性
+% ]{biblatex}
+\usepackage[backend=biber,style=apa,natbib=true]{biblatex}
+% dynamically protect the capitalization of conference names
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \pertype{inproceedings}
+      \step[fieldsource=booktitle, match=\regexp{(.*)}, replace=\{{$1\}}]
+    }
+  }
+}
+\addbibresource{example.bib}
+
+% --- Document Settings ---
+\geometry{
+    left=20mm,
+    right=15mm,
+    top=25mm,
+    bottom=25mm
+}
+\onehalfspacing
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\baselineskip}
+
+% --- Colors and Styles ---
+\definecolor{uefturquoise}{RGB}{7,125,158}
+
+% Heading 1: 14pt, Bold
+\titleformat{\chapter}{\normalfont\fontsize{14}{17}\bfseries}{\thechapter}{1em}{}
+\titlespacing*{\chapter}{0pt}{30pt}{0pt}
+% Heading 2: 12pt, Turquoise (RGB 7,125,158)
+\titleformat{\section}{\normalfont\fontsize{12}{15}\bfseries\color{uefturquoise}}{\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{30pt}{6pt}
+% Heading 3: 11pt, Bold
+\titleformat{\subsection}{\normalfont\fontsize{11}{13}\bfseries}{\thesubsection}{1em}{}
+\titlespacing*{\subsection}{0pt}{30pt}{6pt}
+
+% --- Metadata ---
+\hypersetup{
+    pdftitle={Instructions for Writing Accessible Theses},
+    pdfauthor={Your\_Name},
+    pdfkeywords={Your\_Keywords},
+    hidelinks
+}
+
+\begin{document}
+\sloppy
+
+% --- Title Page ---
+\begin{titlepage}
+    \centering
+    % Five empty lines before the logo, 11pt font, 1.5 line space
+    {\fontsize{11}{16.5}\selectfont
+        \vspace*{5\baselineskip}
+    }
+        \begin{figure}
+            \centering
+            \includegraphics[width=5.28cm, height=4.21cm]{UEF_logo.jpg}
+            \label{fig:uni_logo}
+        \end{figure}
+    {\fontsize{11}{16.5}\selectfont
+        \vspace{1\baselineskip}
+    }
+        {\fontsize{18}{27}\selectfont\textbf{Instructions for Writing Accessible Theses} \par}
+    {\fontsize{11}{16.5}\selectfont
+        \vspace{6\baselineskip}
+    }
+    \vfill
+    
+    % Other details aligned to the right
+    \begin{flushright}
+        {\fontsize{11}{16.5}selectfont First name Last name \par}
+        {\fontsize{11}{16.5}selectfont Degree Programme X \par}
+        {\fontsize{11}{16.5}\selectfont University of Eastern Finland \par}
+        {\fontsize{11}{16.5}\selectfont University of Eastern Finland \par}
+        {\fontsize{11}{16.5}\selectfont DD.MM.YYYY \par}
+    \end{flushright}
+\end{titlepage}
+
+% Abstract Page
+University of Eastern Finland, Faculty X \par
+Department X \par
+Degree Programme X \par
+Surname, Forename M.: Thesis Title \par
+Thesis, xx pages, xx appendices (xx pages) \par
+Thesis instructors, professor xx, docent yy \par
+Month Year \par
+
+\textbf{Keywords:} 
+\\
+
+An abstract is a report...\\
+
+\chapter*{Foreword}
+
+\begin{itemize}
+    \item Heading style named ‘Otsikko ei numerointia’Heading 
+    \item normal text
+\end{itemize}
+
+The law about providing digital services obliges universities, among others, to make sure that their web services, i.e. websites and mobile applications conform to the accessibility criteria. This requirement also applies to published theses.
+
+In Finland, the fulfilment of the accessibility criteria is supervised by The Regional State Administrative Agency, whose website offers additional information (Finnish pages). 
+
+The University of Eastern Finland offers accessible Word templates, for which there are instruction in UEF Intra. Log in with UEF credentials. These instructions are based on those general instructions.
+
+Produce an accessible Word file and turn it into an accessible PDF file. For more information, see the linked SWAY presentations. The instructions in question are meant for UEFians and require UEF credentials to be viewed.
+
+
+
+\chapter*{Abbreviations}
+
+\begin{tabbing}
+Heimo \qquad \= \kill 
+% use the longest acronym as the indentation baseline
+AVI \> The Regional Administrative Agency, which supervises the fulfilment of the accessibility criteria. \\
+H1 \> Style Heading 1.\\
+Heimo \> The digital environment of The University of Eastern Finland...
+\end{tabbing}
+
+
+\tableofcontents
+
+\chapter{Thesis structure}
+The structure of the master’s thesis usually follows this pattern:
+\begin{itemize}
+    \item cover, title page
+    \item abstract
+    \item foreword
+    \item contents
+    \item abbreviations
+    \item the actual text body of the thesis (introduction, material and methods, results, and discussion)
+    \item references, bibliography
+    \item appendices (when needed)
+
+\end{itemize}
+
+\chapter{Further instructions for the production of accessible documents}
+
+\section{Document settings}
+The size of the document is A4. The page margins are set so that the left border is 2 cm, while the right border is 1.5 cm.
+
+\section{Divide the text into headings and body text}
+The appearances of body text and headings have already been set in the template. In the document itself, choose which styles will be used in different parts of the text.
+
+\subsection{Body text}
+The font used in the template is Open Sans. You may also use other serif fonts (e.g. Arial, Calibri, Verdana, but they need to be updated in the style). The point size of the body text should be 12 points. 11 points is enough for Open Sans, as it is slightly larger. Line Spacing should be 1.5.
+
+The text is aligned along the left margin. 
+
+Paragraphs are separated with an additional line break.
+
+\textbf{Bold} is used to emphasise text. Italicization or CAPITALS are used only in special cases.
+
+\subsection{Heading levels}
+Headings use the same font as body text. The size of Heading 1 is 14 points, and it is in bold. Heading 1 begins from its own page (define in the previous).
+
+The size of Heading 2 is 12 points, turquoise (RBG 7,125,158 and \#077D9E.) The size of Heading 3 is 11 points, and it is written in bold. Each heading is followed by an empty space.
+
+Headings should be used starting from Heading 1. Subheadings may be included in the chapters if there are at least two chapters. Do not use a fourth subheading level.
+
+\section{Use lists}
+Unordered list:
+\begin{itemize}
+    \item subject 1
+    \item subject 2
+    \item subject 3
+\end{itemize}
+
+Ordered list with Arabic numerals:
+\begin{enumerate}
+    \item subject 1
+    \item subject 2
+    \item subject 3
+\end{enumerate}
+
+Avoid using lists inside each other.
+
+% --- References ---
+\printbibliography
+
+
+\appendix
+% or \chapter{Appendix}
+
+\end{document}
