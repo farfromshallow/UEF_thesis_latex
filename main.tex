@@ -22,13 +22,7 @@
 \pgfplotsset{compat=1.18}
 % Use this for standard pdflatex compatibility with Open Sans
 \usepackage[default]{opensans}
-\usepackage{microtype}            % 优化字间距
-% \usepackage[
-%     backend=biber,      % APA7 必须使用 biber 后端，而不是传统的 bibtex
-%     style=apa,          % 严格遵守 APA 第 7 版规范
-%     natbib=true,        % 允许使用 \parencite, \textcite, \citealp 等命令
-%     %backref=true        % 可选：在参考文献列表中显示引用的页码，增加易读性
-% ]{biblatex}
+\usepackage{microtype}           
 \usepackage[backend=biber,style=apa,natbib=true]{biblatex}
 % dynamically protect the capitalization of conference names
 \DeclareSourcemap{
